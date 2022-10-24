@@ -32,13 +32,6 @@ public abstract class WebServer{
                 // Make the server socket wait for the next client request
                 Socket socket = serverSocket.accept();
 
-                Sender send = new Sender();
-                ThreadedSend S1 =
-                        new ThreadedSend( " Hi " , send );
-                ThreadedSend S2 =
-                        new ThreadedSend( " Bye " , send );
-
-
                 System.out.println("Got connection!");
 
                 // To read input from the client
@@ -59,10 +52,10 @@ public abstract class WebServer{
 
 
                 // ordinary multi thread server
-//                for (int i = 0; i < MAX_T; i++) {
-//                    WorkerThread object = new WorkerThread();
-//                    object.start();
-//                }
+
+//                    WorkerThread thread = new WorkerThread();
+//                    thread.start();
+
 
 
                 Runnable r1 = new Task("task 1");

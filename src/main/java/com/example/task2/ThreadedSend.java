@@ -2,8 +2,8 @@ package com.example.task2;
 
 public class ThreadedSend extends Thread
 {
-    private String msg;
-    Sender  sender;
+    private final String msg;
+    final Sender  sender;
 
     // Receives a message object and a string
     // message to be sent
@@ -13,8 +13,7 @@ public class ThreadedSend extends Thread
         sender = obj;
     }
 
-    public void run()
-    {
+    public void run() {
         // Only one thread can send a message
         // at a time.
         synchronized(sender)
