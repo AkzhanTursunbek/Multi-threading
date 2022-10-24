@@ -11,11 +11,15 @@ import java.util.concurrent.Executors;
 
 public abstract class WebServer{
     public static void main(String[] args) {
-        final int MAX_T = 4;
+        final int MAX_T = 3;
+        // MAX_T = 2 failures
+        // MAX_T = 4 slower
+        // MAX_T = 3 optimal
+
         // Port number for http request
         int port = args.length > 1 ? Integer.parseInt(args[1]) : 8080;
         // The maximum queue length for incoming connection
-        int queueLength = args.length > 2 ? Integer.parseInt(args[2]) : 50;;
+        int queueLength = args.length > 2 ? Integer.parseInt(args[2]) : 50;
 
 
 
