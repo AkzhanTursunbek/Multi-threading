@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 public class WebServer {
     public static void main(String[] args) {
 
-        int numOfThreads = args.length > 1 ? Integer.parseInt(args[1]) : 20;
+        int numOfThreads = args.length > 1 ? Integer.parseInt(args[1]) : 30;
         int id=0;
         // Port number for http request
         int port = args.length > 1 ? Integer.parseInt(args[1]) : 8080;
