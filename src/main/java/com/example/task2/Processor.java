@@ -16,7 +16,7 @@ public class Processor {
         this.request = request;
     }
 
-    public void create(PrintWriter output) throws IOException {
+    public void create(PrintWriter output) {
 
         File directoryPath = new File("C:\\Users\\Asus FX705D\\Downloads");
         FilenameFilter textFilefilter = (dir, name) -> {
@@ -89,7 +89,7 @@ public class Processor {
         } else if(request.getRequestLine().contains("params")){
             params(output);
         }else {
-            Thread.sleep(2000);
+            WorkerThread.sleep(2000);
         }
 
         socket.close();

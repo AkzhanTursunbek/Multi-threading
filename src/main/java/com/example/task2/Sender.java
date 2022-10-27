@@ -1,15 +1,31 @@
 package com.example.task2;
 
-public class Sender {
-    public synchronized void send(String msg)
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Sender<T> {
+
+    private final Queue<T> queue;
+
+    public Sender(){
+        this.queue = new LinkedList<>();
+    }
+
+
+    public synchronized void add(T elem)
     {
-        System.out.println("Sending\t" + msg);
-        try {
-            Thread.sleep(1000);
+        queue.add(elem);
+        notify();
+    }
+
+    public synchronized T pop() throws InterruptedException{
+        while (queue.isEmpty()){
+            wait();
         }
-        catch (Exception e) {
-            System.out.println("Thread interrupted.");
-        }
-        System.out.println("\n" + msg + "Sent");
+        return this.queue.poll();
+    }
+
+    public synchronized int size(){
+        return queue.size();
     }
 }

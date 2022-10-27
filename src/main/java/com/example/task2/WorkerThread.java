@@ -1,16 +1,25 @@
 package com.example.task2;
 
-public class WorkerThread extends Thread{
+public class WorkerThread extends Thread {
 
-    public void run()
-    {
+    private final int id;
+    private final Processor processor;
+
+    public WorkerThread(int id, Processor processor){
+        this.id = id;
+        this.processor=processor;
+    }
+
+    @Override
+    public void run () {
+        System.out.println(
+                "WorkerThread " + id
+                        + " is running");
         try {
-            // Displaying the thread that is running
-            System.out.println(
-                    "Thread " + Thread.currentThread().getId()
-                            + " is running");
-        }
-        catch (Exception e) {
+
+            processor.process();
+
+        } catch ( Exception e ) {
             // Throwing an exception
             System.out.println("Exception is caught");
         }
